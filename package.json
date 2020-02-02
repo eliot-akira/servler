@@ -1,6 +1,7 @@
 {
   "name": "servler",
-  "version": "0.1.0",
+  "description": "Authenticated service API with generic actions and persistent content types",
+  "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "author": "Eliot Akira",

@@ -1,6 +1,6 @@
 # Servler
 
-Create authenticated service API with generic actions, persistent content types, and optional WebSocket server
+Authenticated service API with generic actions and persistent content types
 
 ```js
 import servler from 'servler'
@@ -16,6 +16,7 @@ servler({
     }
   },
 
+  // Optional
   webSocketServer(io, context) {
 
     io.on('connection', socket => {
