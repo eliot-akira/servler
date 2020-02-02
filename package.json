@@ -1,7 +1,7 @@
 {
   "name": "servler",
   "description": "Authenticated service API with generic actions and persistent content types",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon --watch src/test/server.ts --ignore src/test/**/*.ts --exec \"concurrently --names serve,type npm:dev:serve npm:dev:type\"",
@@ -41,7 +41,6 @@
     "@types/micro": "^7.3.3",
     "@types/node": "^13.1.1",
     "@types/socket.io": "^2.1.4",
-    "chalk": "^3.0.0",
     "concurrently": "^5.1.0",
     "fetch-ponyfill": "^6.1.0",
     "nodemon": "^2.0.2",
