@@ -1,0 +1,56 @@
+{
+  "name": "servler",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Eliot Akira",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliot-akira/servler.git"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon --watch src/test/server.ts --ignore src/test/**/*.ts --exec \"concurrently --names serve,type npm:dev:serve npm:dev:type\"",
+    "dev:serve": "babel-node --extensions=\".ts,.js\" src/test/server.ts",
+    "dev:type": "tsc --preserveWatchOutput --noEmit --watch",
+    "test": "NODE_ENV=development nodemon --watch \"src/test/**/*.ts\" src/test/client.ts",
+    "build": "NODE_ENV=production babel --extensions=\".ts,.js\" src --out-dir build --source-maps inline && tsc --declaration --emitDeclarationOnly",
+    "type": "tsc --noEmit",
+    "try": "NODE_ENV=production node ./build/test/server.js",
+    "release": "yarn build && cp package.json build && cp readme.md build && cd build && rm -rf test && npm publish"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "jwt-simple": "^0.5.6",
+    "micro": "^9.3.4",
+    "nedb": "^1.8.0",
+    "nedb-promises": "^4.0.1",
+    "serve-handler": "^6.1.2",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-do-expressions": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "^7.8.3",
+    "@babel/plugin-proposal-export-namespace-from": "^7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@babel/plugin-proposal-pipeline-operator": "^7.8.3",
+    "@babel/plugin-proposal-throw-expressions": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/micro": "^7.3.3",
+    "@types/node": "^13.1.1",
+    "@types/socket.io": "^2.1.4",
+    "chalk": "^3.0.0",
+    "concurrently": "^5.1.0",
+    "fetch-ponyfill": "^6.1.0",
+    "nodemon": "^2.0.2",
+    "testra": "^1.0.2",
+    "typescript": "^3.7.4"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+      "outDir": "./build",
+      "module": "commonjs",
+      "target": "es5",
+      "strict": true,
+      "sourceMap": false,
+      "types": ["node"],
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "lib": ["dom", "es6", "es2015.promise", "es2015", "esnext"],
+      "strictNullChecks": true,
+      "noImplicitAny": false,
+      "noEmitHelpers": true,
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "noImplicitReturns": true,
+      "noImplicitThis": true
+  },
+  "allowJS": false,
+  "include": ["src/**/*.d.ts", "src/**/*.ts"],
+  "exclude": ["node_modules/*", "scripts", "build"]
+}
