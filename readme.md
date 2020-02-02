@@ -8,7 +8,6 @@ Authenticated service API with generic actions and persistent content types
 import servler from 'servler'
 
 servler({
-
   contentTypes: {
     post: {
       defaultItems: [],
@@ -17,7 +16,6 @@ servler({
       }
     }
   },
-
   actions: {
     ping(data, context) {
       return {
@@ -26,8 +24,6 @@ servler({
       }
     }
   }
-}
-
 }).catch(console.error)
 ```
 
