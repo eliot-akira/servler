@@ -1,4 +1,3 @@
-
 /**
  * Document database
  *
@@ -44,7 +43,6 @@ export const defaultContentTypeActions = [
 ].reduce((obj, actionName) => {
 
   const action: ContentTypeAction = async (data, context) => {
-console.log('default', actionName, data)
     return await context.db[actionName](data)
   }
 
@@ -79,6 +77,14 @@ export const createContentType = async (
   actionContext: CommonActionContextBase
 ): Promise<ContentType> => {
 
+  // Database
+
+  const db = Datastore.create(`data/${typeName}.db` as any)
+
+  db.load()
+
+  // Actions
+
   const {
     actions: givenContentTypeActions = {}
   } = config
@@ -87,10 +93,6 @@ export const createContentType = async (
     auth,
     contentTypes
   } = actionContext
-
-  const db = Datastore.create(`data/${typeName}.db` as any)
-
-  db.load()
 
   const actions = {
     ...defaultContentTypeActions,
