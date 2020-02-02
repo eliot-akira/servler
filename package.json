@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon --watch src/test/server.ts --ignore src/test/**/*.ts --exec \"concurrently --names serve,type npm:dev:serve npm:dev:type\"",
-    "dev:serve": "babel-node --extensions=\".ts,.js\" --source-maps inline src/test/server.ts",
+    "dev:serve": "babel-node --extensions=\".ts,.js\" src/test/server.ts --source-maps inline",
     "dev:type": "tsc --preserveWatchOutput --noEmit --watch",
     "test": "NODE_ENV=development nodemon --watch \"src/test/**/*.ts\" src/test/client.ts",
     "build": "NODE_ENV=production babel --extensions=\".ts,.js\" src --out-dir build && tsc --declaration --emitDeclarationOnly",
