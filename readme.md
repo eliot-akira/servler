@@ -9,7 +9,7 @@ import servler from 'servler'
 
 servler({
   contentTypes: {
-    post: {
+    page: {
       defaultItems: [],
       actions: {
 
@@ -17,7 +17,7 @@ servler({
     }
   },
   actions: {
-    ping(data, context) {
+    async ping(data, context) {
       return {
         message: 'pong',
         data
@@ -33,7 +33,7 @@ All actions are called via `POST` method.
 
 ```json
 {
-  "type": "post",
+  "type": "page",
   "action": "insert",
   "data": {
     "title": "Hello world",
@@ -45,7 +45,7 @@ All actions are called via `POST` method.
 ## WebSocket
 
 ```js
-const webSocketServer = (io, context) => {
+const webSocketServer = async (io, context) => {
 
   io.on('connection', socket => {
 
