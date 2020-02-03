@@ -4,7 +4,7 @@
   "version": "1.0.3",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development concurrently --names serve,type \"nodemon --watch src/test --ignore src/test/client.ts --exec \\\"babel-node --extensions=.ts,.js src/test/server.ts --source-maps inline\\\"\" \"tsc --preserveWatchOutput --noEmit --watch\"",
+    "dev": "NODE_ENV=development concurrently --names serve,type \"nodemon --watch src/test --ignore src/test/client.ts --exec \\\"babel-node --extensions=.ts,.js src/test/server.ts --source-maps inline\\\"\" \"tsc --incremental --preserveWatchOutput --noEmit --watch\"",
     "build": "NODE_ENV=production babel --extensions=\".ts,.js\" src --out-dir build && tsc --declaration --emitDeclarationOnly",
     "test": "NODE_ENV=development nodemon --watch \"src/test/**/*.ts\" src/test/client.ts",
     "type": "tsc --noEmit",
